@@ -8,25 +8,34 @@ public class Main {
         double sum1 = 0;
         double sum2 = 0;
         double sum;
+        boolean run = true;
 
-        System.out.println("Geben Sie zwei Zahlen ein um diese zu addieren!");
-
-        do
+        while (run)
         {
-
-            try
-            {
-                System.out.printf("Erste Zahl:");
+            System.out.println("Geben Sie zwei Zahlen ein um diese zu addieren!");
+            try {
+                System.out.printf("Erste Zahl: ");
                 sum1 = sc.nextDouble();
-                System.out.printf("Zweite Zahl:");
+                System.out.printf("Zweite Zahl: ");
                 sum2 = sc.nextDouble();
+                sum = sum1 + sum2;
+                System.out.println("Ergebniss: " + sum);
             } catch (Exception e) {
                 System.out.println("Bei der Eingabe ist ein Fehler aufgetreten, versuchen Sie es Erneut!");
+                sc.reset();
             }
-        } while(sum1 == 0 && sum2 == 0);
 
-        sum = sum1 + sum2;
-        System.out.println("Ergebniss: " + sum);
-
+            System.out.println("Möchten Sie das Programm beenden? (y/n)");
+            String ans = sc.next();
+            if (ans.equals("y"))
+            {
+                run = false;
+                System.out.println("Auf Wiedersehen!");
+            }
+            else if (ans.equals("n"))
+                run = true;
+            else
+                System.out.println("Ungültige Eingabe! Programm wird fortgesetzt.");
+        }
     }
 }
