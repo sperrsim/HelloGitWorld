@@ -2,10 +2,14 @@ package at.sps;
 
 import java.util.Scanner;
 
+/**
+ * @author Simon Sperr
+ * @version 2020.1.1, 8.10.2020
+ **/
 public class Main {
     public static void main(String[] args) {
-        double sum1 = 0;
-        String ans = "";
+        double sum = 0;
+        String ans = "init";
         boolean adding = true;
         boolean run = true;
 
@@ -14,6 +18,7 @@ public class Main {
             System.out.println("Geben Sie Zahlen ein um diese mit = zu addieren!");
             try {
                 int c = 1;
+                sum = 0;
                 while (adding)
                 {
                     Scanner sc = new Scanner(System.in);
@@ -21,7 +26,7 @@ public class Main {
                     ans = sc.next();
                     try
                     {
-                        sum1 += Double.parseDouble(ans);
+                        sum += Double.parseDouble(ans);
                     }
                     catch(Exception e)
                     {
@@ -37,7 +42,7 @@ public class Main {
                 System.out.println("Bei der Eingabe ist ein Fehler aufgetreten, versuchen Sie es Erneut!");
             }
 
-            System.out.println("Ergebniss: " + sum1);
+            System.out.println("Ergebniss: " + sum);
             Scanner sc = new Scanner(System.in);
             System.out.println("Möchten Sie das Programm beenden? (y/n)");
             ans = sc.next();
@@ -47,9 +52,12 @@ public class Main {
                 System.out.println("Auf Wiedersehen!");
             }
             else if (ans.equals("n"))
-                run = true;
+                adding = true;
             else
+            {
+                adding = true;
                 System.out.println("Ungültige Eingabe! Programm wird fortgesetzt.");
+            }
         }
     }
 }
